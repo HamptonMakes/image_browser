@@ -1,0 +1,7 @@
+%h2 Browsing Images
+
+- @images.each do |image|
+  .image{:style => "clear: left"}
+    %img{:src => image.thumbnail, :style => "float: left"}/
+    %p= image.description
+    %a{:href => "/file?" + build_query(:file => image.xml_file)} Link!

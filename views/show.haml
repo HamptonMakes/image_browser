@@ -1,0 +1,4 @@
+%p= @image.description
+
+- @image.images.each do |thumb|
+  %img{:src => thumb}/
