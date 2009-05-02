@@ -13,6 +13,6 @@ get("/") do
 end
 
 get "/file" do
-  @image = Image.new(params[:file])
+  @image = Image.cache_or_new(params[:file])
   haml :show
 end
