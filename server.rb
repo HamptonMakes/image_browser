@@ -4,8 +4,11 @@ require 'sinatra'
 require 'image'
 
 
+
+
 get("/") do
-  @images = (Dir[Dir.pwd + "/public/*.XML"].collect { |file| Image.new(file) })
+  sleep(30)
+  @images = (Dir[Dir.pwd + "/public/*.XML"].collect { |file| Image.cache_or_new(file) })
   haml :index
 end
 

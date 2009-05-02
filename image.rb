@@ -7,6 +7,12 @@ class Image
     @xml_file = xml_file
   end
   
+  def self.cache_or_new(xml_file)
+    @cache ||= {}
+    @cache[xml_file] ||= Image.new(xml_file)
+    @cache[xml_file]
+  end
+  
   def parser
     @parser ||= Nokogiri::XML(open(@xml_file))
   end
