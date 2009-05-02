@@ -4,8 +4,6 @@ require 'sinatra'
 require 'image'
 
 
-
-
 get("/") do
   sleep(30)
   @images = (Dir[Dir.pwd + "/public/*.XML"].collect { |file| Image.cache_or_new(file) })

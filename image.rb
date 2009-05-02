@@ -5,6 +5,9 @@ class Image
 
   def initialize(xml_file)
     @xml_file = xml_file
+    self.description
+    self.images
+    @parser = nil
   end
   
   def self.cache_or_new(xml_file)
@@ -18,7 +21,7 @@ class Image
   end
   
   def description
-    parser.search("DataContent").text.strip
+    @description ||= parser.search("DataContent").text.strip
   end
   
   def images
